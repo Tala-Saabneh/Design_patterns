@@ -1,6 +1,6 @@
-# Design Patterns (Creational) - Java
+# Design Patterns - Java
 
-Runnable Java examples for three creational design patterns. Each pattern has its own folder with **two examples** and a **README** describing the relationships between classes and interfaces (Mermaid class diagrams, rendered automatically by GitHub).
+Runnable Java examples for six topics. Each topic has its own folder with **two examples** and a **README** describing the relationships between classes and interfaces (Mermaid class diagrams, rendered automatically by GitHub).
 
 ```
 .
@@ -12,13 +12,25 @@ Runnable Java examples for three creational design patterns. Each pattern has it
 │   ├── README.md
 │   ├── Example1Database.java            # database connection (from the pseudocode)
 │   └── Example2ConfigManager.java       # shared config, thread-safe
-└── factory_method/
+├── factory_method/
+│   ├── README.md
+│   ├── Example1Dialog.java              # cross-platform dialog (from the pseudocode)
+│   └── Example2Logistics.java           # trucks and ships (from the problem)
+├── builder/
+│   ├── README.md
+│   ├── Example1CarBuilder.java          # cars and manuals (from the pseudocode)
+│   └── Example2HouseBuilder.java        # houses and castles (from the problem)
+├── strategy/
+│   ├── README.md
+│   ├── Example1Calculator.java          # add / subtract / multiply (from the pseudocode)
+│   └── Example2Navigator.java           # route planning (from the problem)
+└── mvc/
     ├── README.md
-    ├── Example1Dialog.java              # cross-platform dialog (from the pseudocode)
-    └── Example2Logistics.java           # trucks and ships (from the problem)
+    ├── Example1StudentMvc.java          # student marks (from the explanation)
+    └── Example2AtmMvc.java              # ATM withdrawal (from the explanation)
 ```
 
-In every pattern, **Example 1** is the exact example of the explanation (same classes, same names, same flow) and **Example 2** is a second scenario that follows the same structure.
+In every topic, **Example 1** is the exact example of the explanation (same classes, same names, same flow) and **Example 2** is a second scenario that follows the same structure.
 
 ## Requirements
 
@@ -35,22 +47,31 @@ java singleton/Example1Database.java
 java singleton/Example2ConfigManager.java
 java factory_method/Example1Dialog.java
 java factory_method/Example2Logistics.java
+java builder/Example1CarBuilder.java
+java builder/Example2HouseBuilder.java
+java strategy/Example1Calculator.java
+java strategy/Example2Navigator.java
+java mvc/Example1StudentMvc.java
+java mvc/Example2AtmMvc.java
 ```
 
 Or compile a folder and run the class:
 
 ```bash
-cd abstract_factory
+cd builder
 javac *.java
-java Example1GuiFactory
+java Example1CarBuilder
 ```
 
 ## Quick comparison
 
-| Pattern | Creates | Mechanism | Key point |
+| Topic | Type | Main goal | Mechanism |
 |---|---|---|---|
-| Factory Method | one product | subclass overrides a creation method | creator's main job is business logic, not creation |
-| Abstract Factory | a family of related products | a factory object with several creation methods | products from one factory always match |
-| Singleton | exactly one object of a class | private constructor + static `getInstance()` | one instance, one global access point |
+| Factory Method | Creational | Create **one** product; subclasses decide which | Subclass overrides a creation method |
+| Abstract Factory | Creational | Create a **family** of related products | A factory object with several creation methods |
+| Singleton | Creational | Exactly **one** instance of a class | Private constructor + static `getInstance()` |
+| Builder | Creational | Build a complex object **step by step** | Builder steps + optional Director |
+| Strategy | Behavioral | **Swap algorithms** at runtime | Context holds a strategy interface reference |
+| MVC | Architectural | **Separate responsibilities** of an application | Model (data/logic), View (display), Controller (coordination) |
 
-Each `.java` file has the class with `main` first, followed by the interfaces and classes of the pattern. This is only so that `java File.java` can find the entry point; the pattern classes are the same as in the explanation.
+Each `.java` file has the class with `main` first, followed by the interfaces and classes of the topic. This is only so that `java File.java` can find the entry point; the topic classes are the same as in the explanation.
